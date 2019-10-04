@@ -1,22 +1,42 @@
-.App {
-  text-align: center;
+:root {
+  /* --mainBlack: #0e0e0e;
+  --mainGray: #ececec;
+  --mainBlue: #622cff;
+  --lightBlue: hsl(255, 100%, 79%);
+  --mainRed: #fc7164;
+  --lightRed: hsl(5, 96%, 79%); */
+
+  --darkBlue: #062639;
+  --mainBlue: hsl(202, 81%, 32%);
+  --lightBlue: hsl(202, 81%, 62%);
+  --mainRed: #e7301c;
+  --lightGray: #edf4ea;
+  --mainGray: #c5cac4;
+  --darkGray: hsl(110, 5%, 48%);
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  font-family: "Source Sans Pro", sans-serif !important;
+  /* font-weight: bold !important; */
+  background: var(--lightGray) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.text-title {
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #09d3ac;
+.text-blue {
+  color: var(--mainBlue);
+}
+
+.text-bright {
+  color: var(--lightGray);
+}
+
+.logo {
+  filter: hue-rotate(188deg) brightness(1.1) saturate(1.5);
+  width: 50px;
+  border-radius: 50%;
 }
