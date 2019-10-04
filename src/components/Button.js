@@ -16,7 +16,6 @@ transition: all .4s ease;
     background: var(--mainBlue);
 } 
 &:focus {
-    background: var(--mainBlue);
     outline: none;
 } 
 `;
