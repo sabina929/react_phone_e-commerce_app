@@ -6,7 +6,9 @@
   --mainRed: #fc7164;
   --lightRed: hsl(5, 96%, 79%); */
 
+  /* --darkBlue: rgb(6, 38, 57); */
   --darkBlue: #062639;
+  /* --mainBlue: rgb(15, 99, 147); */
   --mainBlue: hsl(202, 81%, 32%);
   --lightBlue: hsl(202, 81%, 62%);
   --mainRed: #e7301c;
@@ -25,6 +27,11 @@ body {
   font-weight: bold;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
+  font-size: 20rem !important;
+}
+
+h1.text-capitalize.font-weight-bold {
+  font-size: 3rem !important;
 }
 
 .text-blue {
