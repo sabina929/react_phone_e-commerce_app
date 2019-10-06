@@ -4,8 +4,8 @@ export const ButtonContainer = styled.button`
 text-transform: capitalize;
 font-size: 1.2rem;
 color: var(--lightGray);
-background: var(--mainRed);
-// border: 3px solid var(--mainRed);
+// background: var(--mainRed);
+background: ${props => props.card ? 'var(--mainRed)' : 'var(--darkBlue)'};
 border: none;
 border-radius: 5px;
 padding: .3rem .6rem;
