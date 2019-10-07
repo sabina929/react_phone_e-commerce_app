@@ -39,7 +39,8 @@ export default class Details extends Component {
                 { /* buttons */ }
                 <div>
                   <ButtonContainer card disabled={inCard ? true : false} onClick={() => {
-            value.addToCard(id)
+            value.addToCard(id);
+            value.openModal(id);
           }}>
                     {inCard ? 'In Card' : 'Add To Card'}
                   </ButtonContainer>

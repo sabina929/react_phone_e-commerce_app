@@ -42,8 +42,46 @@ h1.text-capitalize.font-weight-bold {
   color: var(--lightGray);
 }
 
+.text-black {
+  font-weight: bold !important;
+  color: var(--darkBlue);
+}
+
 .logo {
   filter: hue-rotate(188deg) brightness(1.1) saturate(1.5);
   width: 50px;
   border-radius: 50%;
+}
+
+#card-page {
+  overflow-x: hidden;
+}
+
+.btn-dark-blue {
+  background: transparent;
+  text-transform: capitalize;
+  font-size: 0.9rem !important;
+  color: var(--darkBlue);
+  border-radius: 0 !important;
+  border: 1.2px solid var(--darkBlue) !important;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  font-weight: black !important;
+}
+.btn-dark-blue:hover {
+  background: var(--darkBlue) !important;
+  color: var(--lightGray) !important;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+}
+.card-icon {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--mainRed);
 }

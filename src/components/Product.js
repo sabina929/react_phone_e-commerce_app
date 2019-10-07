@@ -19,6 +19,7 @@ export default class Product extends Component {
 
                  {value => (<div className="img-container p-5" onClick={() => {
           value.handleDetail(id);
+
         }}>
                 
                       <Link to="/details">
@@ -26,6 +27,7 @@ export default class Product extends Component {
                       </Link>
                       <button className="cart-btn" disabled={inCard ? true : false } onClick={() => {
           value.addToCard(id);
+          value.openModal(id);
         }}>
                                   {
         inCard ? (<p className="text-capitalize mb-0" disabled>in card</p>) : (<i className="fas fa-cart-plus"/>)

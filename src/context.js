@@ -11,7 +11,13 @@ class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct,
-    card: []
+    card: [],
+    modalOpen: false,
+    modalProduct: detailProduct,
+    cardSubTotal: 0,
+    cardTax: 0,
+    cardTotal: 0
+
   }
 
 
@@ -57,6 +63,45 @@ class ProductProvider extends Component {
 
   }
 
+
+  openModal = (id) => {
+    const product = this.getProduct(id);
+    this.setState(() => {
+      return {
+        modalProduct: product,
+        modalOpen: true
+      }
+    })
+  }
+
+  closeModal = () => {
+    this.setState(() => {
+      return {
+        modalOpen: false
+      }
+    })
+  }
+
+
+
+  increment = (id) => {
+    console.log('increment');
+  }
+  decrement = (id) => {
+    console.log('decrement');
+
+  }
+
+  removeProduct = (id) => {
+    console.log('remove');
+
+  }
+  clearCard = () => {
+    console.log('clear');
+
+  }
+
+
   //  TESTER 
   // tester = () => {
   //   console.log('State products:', this.state.products[0].inCard);
@@ -97,12 +142,21 @@ class ProductProvider extends Component {
     this.setProducts();
   }
 
+
+
   render() {
     return (
       <ProductContext.Provider value={{
         ...this.state,
         handleDetail: this.handleDetail,
-        addToCard: this.addToCard
+        addToCard: this.addToCard,
+        openModal: this.openModal,
+        closeModal: this.closeModal,
+        increment: this.increment,
+        decrement: this.decrement,
+        removeProduct: this.removeProduct,
+        clearCard: this.clearCard
+
       }}>
                 {this.props.children}
       </ProductContext.Provider>
