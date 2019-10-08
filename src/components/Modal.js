@@ -66,7 +66,7 @@ const ModalContainer = styled.div`
         align-items:center;
    
         #modal{
-                background-color:var(--lightGray);
+                background-color:white;
                 border-radius: 5px;
                 box-shadow: 0 0px 60px -10px rgba(0,0,0,.3);
             }

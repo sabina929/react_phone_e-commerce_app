@@ -46,6 +46,10 @@ h1.text-capitalize.font-weight-bold {
   font-weight: bold !important;
   color: var(--darkBlue);
 }
+.text-red {
+  font-weight: bold !important;
+  color: var(--mainRed);
+}
 
 .logo {
   filter: hue-rotate(188deg) brightness(1.1) saturate(1.5);

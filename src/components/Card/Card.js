@@ -4,6 +4,7 @@ import CardColumns from "./CardColumns";
 import EmptyCard from "./EmptyCard";
 import { ProductConsumer } from "../../context";
 import CardList from "./CardList";
+import CardTotals from "./CardTotals";
 
 export default class Card extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class Card extends Component {
           <Title name="Your" title="Card"/>
           <CardColumns/>
           <CardList value={value}/>
+          <CardTotals value={value}/>
         </React.Fragment>
           )
         } else {

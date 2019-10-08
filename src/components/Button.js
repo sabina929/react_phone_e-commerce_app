@@ -10,7 +10,7 @@ border: none;
 border-radius: 5px;
 padding: .3rem .6rem;
 cursor: pointer;
-margin: .2rem .5rem .2rem 0;
+margin: ${props => props.clearbutton ? "1.2rem 0 1rem 0" : ".2rem .5rem .2rem 0"} ;
 transition: all .4s ease;
 &:hover {
     background: var(--mainBlue);

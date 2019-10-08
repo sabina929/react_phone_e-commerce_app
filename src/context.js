@@ -14,7 +14,7 @@ class ProductProvider extends Component {
     card: [],
     modalOpen: false,
     modalProduct: detailProduct,
-    cardSubTotal: 0,
+    cardSubtotal: 0,
     cardTax: 0,
     cardTotal: 0
 
@@ -26,7 +26,7 @@ class ProductProvider extends Component {
     return product;
   }
 
-
+  // SETTING DETAIL PAGE'S CONTENT
   handleDetail = (id) => {
     // console.log("detail")
     const product = this.getProduct(id);
@@ -34,12 +34,10 @@ class ProductProvider extends Component {
       return {
         detailProduct: product
       }
-
     })
-
   }
 
-
+  // ADDING TO THE CARD
   addToCard = (id) => {
     // console.log(`card ${id}`);
 
@@ -59,11 +57,12 @@ class ProductProvider extends Component {
       }
     }, () => {
       // console.log(this.state);
+      this.addTotals();
     })
 
   }
 
-
+  // MODAL FUNCTIONALITIES
   openModal = (id) => {
     const product = this.getProduct(id);
     this.setState(() => {
@@ -81,25 +80,113 @@ class ProductProvider extends Component {
       }
     })
   }
+  // END OF MODAL FUNCTIONALITIES
 
 
+  // CARD FUNCTIONALITIES
 
   increment = (id) => {
-    console.log('increment');
+    // console.log('increment');
+
+    let tempCard = [...this.state.card];
+    const selectedProduct = tempCard.find(product => product.id === id);
+    const index = tempCard.indexOf(selectedProduct);
+    const product = tempCard[index];
+
+    product.count = product.count + 1;
+    product.total = product.price * product.count;
+
+    this.setState(() => {
+      return {
+        card: [...tempCard]
+      }
+    }, () => {
+      this.addTotals();
+    })
+
   }
   decrement = (id) => {
-    console.log('decrement');
+    // console.log('decrement');
+    let tempCard = [...this.state.card];
+    const selectedProduct = tempCard.find(product => product.id === id);
+    const index = tempCard.indexOf(selectedProduct);
+    const product = tempCard[index];
 
+    product.count = product.count - 1;
+    if (product.count === 0) {
+      this.removeProduct(id);
+    } else {
+      product.total = product.price * product.count;
+
+
+      this.setState(() => {
+        return {
+          card: [...tempCard]
+        }
+      }, () => {
+        this.addTotals();
+      })
+
+    }
   }
 
   removeProduct = (id) => {
-    console.log('remove');
+    // console.log('remove');
+    let tempProducts = [...this.state.products];
+    let tempCard = [...this.state.card];
+
+    tempCard = tempCard.filter(product => product.id !== id);
+
+    const index = tempProducts.indexOf(this.getProduct(id));
+    let removedProduct = tempProducts[index];
+
+    removedProduct.inCard = false;
+    removedProduct.count = 0;
+    removedProduct.total = 0;
+
+    this.setState(() => {
+      return {
+        card: [...tempCard],
+        products: [...tempProducts]
+
+      }
+    }, () => {
+      this.addTotals();
+    })
 
   }
+
   clearCard = () => {
-    console.log('clear');
+    // console.log('clear');
+    this.setState(() => {
+      return {
+        card: []
+      }
+    }, () => {
+      this.setProducts();
+      this.addTotals();
+    })
 
   }
+
+  addTotals = () => {
+    let subtotal = 0;
+    this.state.card.map(product => (subtotal += product.total));
+    const tempTax = subtotal * 0.28;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subtotal + tax;
+
+    this.setState(() => {
+      return {
+        cardSubtotal: subtotal,
+        cardTax: tax,
+        cardTotal: total,
+      }
+    })
+
+  }
+
+  // END OF CARD FUNCTIONALITIES
 
 
   //  TESTER 
@@ -137,6 +224,7 @@ class ProductProvider extends Component {
       }
     })
   }
+
 
   componentDidMount() {
     this.setProducts();
