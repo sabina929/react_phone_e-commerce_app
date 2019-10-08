@@ -20,7 +20,7 @@ export default class Card extends Component {
           <Title name="Your" title="Card"/>
           <CardColumns/>
           <CardList value={value}/>
-          <CardTotals value={value}/>
+          <CardTotals value={value} history={this.props.history}/>
         </React.Fragment>
           )
         } else {

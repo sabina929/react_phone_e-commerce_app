@@ -86,7 +86,7 @@ const ProductWrapper = styled.div`
 
         .card-footer {
           background:rgba(15, 99, 147);
-          color:#edf4ea;
+          color:white;
 
           h5.text-blue.mb-0 {
             color:#edf4ea;
